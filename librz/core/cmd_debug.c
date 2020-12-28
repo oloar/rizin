@@ -614,7 +614,7 @@ static RzGraphNode *get_graphtrace_node (RzGraph *g, Sdb *nodes, struct trace_no
 	gn = (RzGraphNode *)(size_t)sdb_num_get (nodes, tn_key, NULL);
 	if (!gn) {
 		gn = rz_graph_add_node (g, tn);
-		sdb_num_set (nodes, tn_key, (ut64)(size_t)gn, 0);
+		sdb_num_set (nodes, tn_key, HT_PTR(gn), 0);
 	}
 	return gn;
 }
@@ -3742,7 +3742,7 @@ static RTreeNode *add_trace_tree_child (Sdb *db, RTree *t, RTreeNode *cur, ut64 
 		t_node = RZ_NEW0 (struct trace_node);
 		t_node->addr = addr;
 		t_node->refs = 1;
-		sdb_num_set (db, dbkey, (ut64)(size_t)t_node, 0);
+		sdb_num_set (db, dbkey, HT_PTR(t_node), 0);
 	} else {
 		t_node->refs++;
 	}

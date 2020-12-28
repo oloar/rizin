@@ -543,7 +543,7 @@ RzList *rz_bin_le_get_relocs(rz_bin_le_obj_t *bin) {
 			break;
 		}
 		case INTERNALENTRY:
-			rel->addend = (ut64)(size_t)rz_list_get_n (entries, ordinal - 1);
+			rel->addend = HT_PTR(rz_list_get_n (entries, ordinal - 1));
 			break;
 		}
 		if (header.target & F_TARGET_ADDITIVE) {

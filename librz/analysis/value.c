@@ -28,7 +28,7 @@ RZ_API RzAnalysisValue *rz_analysis_value_copy(RzAnalysisValue *ov) {
 RZ_API void rz_analysis_value_free(RzAnalysisValue *value) {
 	free (value);
 #if 0
-	ut64 pval = (ut64)(size_t)value;
+	ut64 pval = HT_PTR(value);
 	if (pval && pval != UT64_MAX) {
 		/* TODO: free RzRegItem objects? */
 		free (value);

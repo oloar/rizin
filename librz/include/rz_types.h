@@ -337,6 +337,8 @@ static inline void *rz_new_copy(int size, void *data) {
 #define RZ_ARRAY_SIZE(x) (sizeof (x) / sizeof ((x)[0]))
 #define RZ_PTR_MOVE(d,s) d=s;s=NULL;
 
+#define HT_PTR(x) ((ut64)(size_t)x)
+
 #define RZ_PTR_ALIGN(v,t) \
 	((char *)(((size_t)(v) ) \
 	& ~(t - 1)))

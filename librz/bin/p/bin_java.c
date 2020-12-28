@@ -42,7 +42,7 @@ static int add_sdb_bin_obj(const char *key, RzBinJavaObj *bin_obj) {
 	char *addr, value[1024] = {
 		0
 	};
-	addr = sdb_itoa ((ut64) (size_t) bin_obj, value, 16);
+	addr = sdb_itoa (HT_PTR(bin_obj), value, 16);
 	if (key && bin_obj && DB) {
 		IFDBG_BIN_JAVA eprintf("Adding %s:%s to the bin_objs db\n", key, addr);
 		sdb_set (DB, key, addr, 0);

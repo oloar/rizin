@@ -1023,13 +1023,13 @@ RZ_API int rz_sys_run_rop(const ut8 *buf, int len) {
 RZ_API bool rz_is_heap (void *p) {
 	void *q = malloc (8);
 	ut64 mask = UT64_MAX;
-	ut64 addr = (ut64)(size_t)q;
+	ut64 addr = HT_PTR(q);
 	addr >>= 16;
 	addr <<= 16;
 	mask >>= 16;
 	mask <<= 16;
 	free (q);
-	return (((ut64)(size_t)p) == mask);
+	return (HT_PTR(p) == mask);
 }
 
 RZ_API char *rz_sys_pid_to_path(int pid) {
